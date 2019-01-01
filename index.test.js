@@ -1,5 +1,8 @@
 'use strict'
+const execa = require('execa')
 
-test('ok', () => {
-  expect(false).toBe(true)
+test('--help', async () => {
+  await expect(execa('./cli.js', ['--help'])).resolves.toMatchObject({
+    code: 0,
+  })
 })
